@@ -1,0 +1,17 @@
+version: "3"
+services:
+  stack:
+    build: custom-stack-container
+    working_dir: /Users/codygman/intero-docker-compose-repro/
+    volumes:
+      - stack-root:/stack-root
+      - .:/Users/codygman/intero-docker-compose-repro/
+      - stack-work:/Users/codygman/intero-docker-compose-repro/.stack-work
+    tty: true
+    ports:
+      - "1022:22"
+    command: ./run.sh
+
+volumes:
+  stack-root:
+  stack-work:
